@@ -6,6 +6,7 @@ public partial class Program : IDisposable
   private readonly ChromeOptions options;
   private readonly ChromeDriverService service;
   private readonly Boolean is_development = false;
+  public readonly String PRL_LOCKFILE = "prl.lock";
   private readonly Dictionary<String, String> configuracoes = new();
   private readonly Dictionary<String, String> caminho = new();
   private readonly Dictionary<String, Int32> espera = new()
