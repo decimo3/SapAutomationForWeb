@@ -1,4 +1,6 @@
 bin
 obj
 www
-*.cfg
+tmp
+prl.conf
+chromedriver.exe

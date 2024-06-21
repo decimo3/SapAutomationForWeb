@@ -1,0 +1,12 @@
+IFRAME_PESQUISA=/html/body/div/div[2]/iframe
+PESQUISA_TIPO=/html/body/form/div[4]/div/table/tbody/tr[2]/td/table/tbody/tr/td[3]/div[1]/table/tbody/tr[3]/td/div/div/div/div[2]/div/div/table/tbody/tr/td/table/tbody/tr[1]/td[2]/div/div/div/div[2]/div/div/div/div[2]/table/tbody/tr[1]/td/div/table/tbody/tr/td[2]/div/div/div[2]/table/tbody/tr/td[1]/fieldset/input
+PESQUISA_OPCAO_INSTALACAO=/html/body/div[2]/ul/li[2]/a
+PESQUISA_TEXTO_INSTALACAO=/html/body/form/div[4]/div/table/tbody/tr[2]/td/table/tbody/tr/td[3]/div[1]/table/tbody/tr[3]/td/div/div/div/div[2]/div/div/table/tbody/tr/td/table/tbody/tr[1]/td[2]/div/div/div/div[2]/div/div/div/div[2]/table/tbody/tr[2]/td/div/table/tbody/tr/td[2]/div/div/input
+PESQUISA_BOTAO_PESQUISAR=/html/body/form/div[4]/div/table/tbody/tr[2]/td/table/tbody/tr/td[3]/div[1]/table/tbody/tr[3]/td/div/div/div/div[2]/div/div/table/tbody/tr/td/table/tbody/tr[1]/td[2]/div/div/div/div[2]/div/div/div/div[2]/table/tbody/tr[3]/td/span[1]/a/span/b
+LISTA_PARCEIROS_NEGOCIO_PRIMEIRO=/html/body/form/div[4]/div[1]/table/tbody/tr[3]/td/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div/div/div/div/div[2]/div/div/table/tbody/tr[1]/td[3]/span
+LISTA_PARCEIROS_NEGOCIO_PROSSEGUIR=/html/body/form/div[4]/div[1]/table/tbody/tr[3]/td/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div/table/tbody/tr/td/span[1]/a/span/b
+SUPER_TELA=/html/body/form/div[4]/div/table/tbody/tr[2]/td/table/tbody/tr/td[1]/div[2]/div[1]/div/div/ul/li[8]/a
+TABELA_DEBITOS=/html/body/form/div[4]/div/table/tbody/tr[2]/td/table/tbody/tr/td[3]/div[1]/table/tbody/tr[3]/td/div/div/div/div[2]/div/div/table/tbody/tr[1]/td/table[1]/tbody/tr[2]/td/div/div/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div/div/div[2]/div/div[1]/table
+TABELA_DEBITOS_LINHAS=/html/body/form/div[4]/div/table/tbody/tr[2]/td/table/tbody/tr/td[3]/div[1]/table/tbody/tr[3]/td/div/div/div/div[2]/div/div/table/tbody/tr[1]/td/table[1]/tbody/tr[2]/td/div/div/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div/div/div[2]/div/div[1]/table/tbody/tr
+TABELA_DEBITOS_LINHA=/html/body/form/div[4]/div/table/tbody/tr[2]/td/table/tbody/tr/td[3]/div[1]/table/tbody/tr[3]/td/div/div/div/div[2]/div/div/table/tbody/tr[1]/td/table[1]/tbody/tr[2]/td/div/div/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div/div/div[2]/div/div[1]/table/tbody/tr[_]
+DOWNLOAD_BUTTON=/html/body/pdf-viewer//viewer-toolbar//div/div[3]/viewer-download-controls//cr-icon-button//div/iron-icon
