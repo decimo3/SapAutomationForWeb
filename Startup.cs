@@ -1,11 +1,23 @@
-using System.Diagnostics.Contracts;
-
 namespace sap_automation;
 public class Startup
 {
   public static void Main(string[] args)
   {
-    var program = new Program();
-    program.Fatura(args[0]);
+    using (var program = new Program())
+    {
+      program.Autenticar();
+      while(true)
+      {
+        try
+        {
+          program.Pesquisar("0413645431", String.Empty);
+          program.SuperTela();
+        }
+        catch (System.Exception)
+        {
+          
+        }
+      }
+    }
   }
 }
