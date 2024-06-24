@@ -31,7 +31,7 @@ namespace sap_automation
             throw new InvalidOperationException("Tela desconhecida!");
         }
       }
-      catch (System.Exception erro)
+      catch
       {
         Atualizar();
         Verificar(attempt++);
