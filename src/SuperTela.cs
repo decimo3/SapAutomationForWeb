@@ -12,6 +12,7 @@ public partial class Program
     GotoFrame("WorkAreaFrame2");
     var apontador = 1;
     var n_faturas = this.driver.FindElements(By.XPath(caminho["TABELA_DEBITOS_LINHAS"])).Count;
+    var qnt_passivas = 0;
     do
     {
       GotoFrame("WorkAreaFrame2");
@@ -23,6 +24,13 @@ public partial class Program
         apontador++;
         continue;
       }
+      var referencia = linha.FindElement(By.XPath(".//td[6]")).Text;
+      var vencimento = linha.FindElement(By.XPath(".//td[8]")).Text;
+      var montante = linha.FindElement(By.XPath(".//td[9]")).Text;
+      this.resposta.Append($"{qnt_passivas}ª Fatura\n");
+      this.resposta.Append($"Referencia: {referencia}\n");
+      this.resposta.Append($"Vencimento: {vencimento}\n");
+      this.resposta.Append($"Montante: R$ {montante}\n\n");
       linha.FindElement(By.XPath(".//td[9]/a")).Click();
       System.Threading.Thread.Sleep(this.espera["LONGA"]);
       this.janelas = this.driver.WindowHandles;
@@ -37,6 +45,11 @@ public partial class Program
       this.janelas = this.driver.WindowHandles;
       this.driver.SwitchTo().Window(this.janelas[0]);
       apontador++;
+      qnt_passivas++;
     } while (apontador <= n_faturas);
+    if(qnt_passivas == 0)
+    {
+      this.resposta.Append($"Não foram encontradas faturas pendentes para a instalação {instalacao}\n\n Verifique os débitos pendentes enviando `pendente` para o chatbot.");
+    }
   }
 }
