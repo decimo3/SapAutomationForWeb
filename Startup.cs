@@ -11,9 +11,9 @@ public class Startup
         try
         {
           Thread.Sleep(10_000);
-          if(!System.IO.File.Exists(program.PRL_LOCKFILE)) return;
+          if(!System.IO.File.Exists(program.PRL_LOCKFILE)) continue;
           var solicitacao = System.IO.File.ReadAllText(program.PRL_LOCKFILE, System.Text.Encoding.UTF8);
-          if(solicitacao.Length == 0 || solicitacao.Length > 50) return;
+          if(solicitacao.Length == 0 || solicitacao.Length > 50) continue;
           Console.WriteLine($"{DateTime.Now} - Solicitação recebida: {solicitacao}.");
           var argumentos = solicitacao.Split(' ');
           if(argumentos.Length != 3) throw new IndexOutOfRangeException("A solicitação está malformada! As solicitações devem seguir o formato:\n\n`aplicação` `n. instalação` `n. parceiro`");
@@ -31,7 +31,7 @@ public class Startup
         {
           System.IO.File.WriteAllText(program.PRL_LOCKFILE, erro.Message, System.Text.Encoding.UTF8);
           Console.WriteLine($"{DateTime.Now} - {erro.Message}.");
-          return;
+          continue;
         }
       }
     }
