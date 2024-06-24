@@ -8,7 +8,7 @@ namespace sap_automation
       {"MAIN", "CRMApplicationFrame"},
       {"TOPAREA", "CRMApplicationFrame>FRAME_TOPAREA"},
       {"TABAREA", "CRMApplicationFrame>FRAME_TABAREA"},
-      {"MIDAREA", "CRMApplicationFrame>s_500_ZAT01C00001_1718894059786"},
+      {"MIDAREA", "CRMApplicationFrame>.//div/iframe"},
       {"BOTAREA", "CRMApplicationFrame>FRAME_BOTAREA"},
       {"APPLICATION", "CRMApplicationFrame>.//div/iframe>CRMApplicationFrame>FRAME_APPLICATION"},
       {"WorkAreaFrame1", "CRMApplicationFrame>.//div/iframe>CRMApplicationFrame>FRAME_APPLICATION>WorkAreaFrame1"},
@@ -17,6 +17,8 @@ namespace sap_automation
       {"ParceiroFrame2", "WorkAreaFrame2"},
       {"EmbedFramePDF", "WorkAreaFrame1>ITSFRAME1"},
       {"ChromeViewerPDF", ".//body/embed"},
+      {"HeadAreaFrame", "CRMApplicationFrame>.//div/iframe>CRMApplicationFrame>FRAME_APPLICATION>HeaderFrame"},
+      {"TabAreaFrame", "CRMApplicationFrame>.//div/iframe>CRMApplicationFrame>FRAME_APPLICATION>HeaderFrame>WorkAreaFrame1"},
     };
 
     public void GotoFrame(String frame_index)
