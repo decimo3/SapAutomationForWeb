@@ -6,6 +6,7 @@ public partial class Program : IDisposable
   private readonly ChromeOptions options;
   private readonly ChromeDriverService service;
   private readonly Boolean is_development = false;
+  private System.Text.StringBuilder resposta = new();
   public readonly String PRL_LOCKFILE = "prl.lock";
   private readonly Dictionary<String, String> configuracoes = new();
   private readonly Dictionary<String, String> caminho = new();
