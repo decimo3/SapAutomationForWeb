@@ -16,16 +16,15 @@ public class Startup
           if(solicitacao.Length == 0 || solicitacao.Length > 50) continue;
           Console.WriteLine($"{DateTime.Now} - Solicitação recebida: {solicitacao}.");
           var argumentos = solicitacao.Split(' ');
-          if(argumentos.Length != 3) throw new IndexOutOfRangeException("A solicitação está malformada! As solicitações devem seguir o formato:\n\n`aplicação` `n. instalação` `n. parceiro`");
+          if(argumentos.Length != 2) throw new IndexOutOfRangeException("A solicitação está malformada! As solicitações devem seguir o formato:\n\n`aplicação` `n. instalação`");
           if(!Int64.TryParse(argumentos[1], out Int64 instalacao)) throw new InvalidCastException("A instalação não é um número!");
-          if(!Int64.TryParse(argumentos[2], out Int64 parceiro)) throw new InvalidCastException("O parceiro não é um número!");
           program.Atualizar();
           program.Verificar();
           switch (argumentos[0])
           {
             case "fatura":
             case "debito":
-              program.SuperTela(instalacao, parceiro);
+              program.SuperTela(instalacao);
             break;
             default:
               throw new InvalidOperationException($"A solicitação {argumentos[0]} é inválida!\n\nAs aplicações aceitas no momento são: `fatura` e `debito` somente.");

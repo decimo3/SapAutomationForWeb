@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 namespace sap_automation;
 public partial class Program
 {
-  public void SuperTela(Int64 instalacao, Int64 parceiro)
+  public void SuperTela(Int64 instalacao)
   {
-    Pesquisar(instalacao, parceiro);
+    Pesquisar(instalacao);
     GotoFrame("WorkAreaFrame1");
     this.driver.FindElement(By.XPath(caminho["SUPER_TELA"])).Click();
     System.Threading.Thread.Sleep(this.espera["CURTA"]);

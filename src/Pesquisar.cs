@@ -4,7 +4,7 @@ namespace sap_automation;
 public partial class Program
 {
   private ReadOnlyCollection<String> janelas = new(new List<String>());
-  public void Pesquisar(Int64 instalacao, Int64 parceiro)
+  public void Pesquisar(Int64 instalacao)
   {
     this.janelas = this.driver.WindowHandles;
     GotoFrame("WorkAreaFrame1");
@@ -19,12 +19,10 @@ public partial class Program
     if(this.driver.Title == "Lista de parceiros")
     {
       GotoFrame("ParceiroFrame1");
-      var p_txt = this.driver.FindElement(By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PRIMEIRO"])).Text;
-      if(p_txt == null || !Int64.TryParse(p_txt, out Int64 p_num))
-        throw new InvalidCastException("Não foi encontrado parceiro na lista de parceiros da instalação!");
-      if(p_num != parceiro)
-        throw new InvalidOperationException("O parceiro encontrado não confere com o solicitado!");
-      this.driver.FindElement(By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PRIMEIRO"])).Click();
+      var parceiro = this.driver.FindElement(By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PRIMEIRO_STATUS"]));
+      if(!parceiro.GetDomAttribute("src").Contains("LEDG"))
+        throw new InvalidOperationException("A instalação não tem cliente vinculado, não é possível processar essa solicitação! Verifique com o controlador!");
+      this.driver.FindElement(By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PRIMEIRO_CHECK"])).Click();
       GotoFrame("ParceiroFrame2");
       this.driver.FindElement(By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PROSSEGUIR"])).Click();
       this.driver.Close();
