@@ -5,7 +5,7 @@ public class Startup
   {
     using (var program = new Program())
     {
-      program.Autenticar();
+      program.Verificar();
       while(true)
       {
         try
@@ -19,6 +19,7 @@ public class Startup
           if(argumentos.Length != 3) throw new IndexOutOfRangeException("A solicitação está malformada! As solicitações devem seguir o formato:\n\n`aplicação` `n. instalação` `n. parceiro`");
           if(!Int64.TryParse(argumentos[1], out Int64 instalacao)) throw new InvalidCastException("A instalação não é um número!");
           if(!Int64.TryParse(argumentos[2], out Int64 parceiro)) throw new InvalidCastException("O parceiro não é um número!");
+          program.Atualizar();
           program.Verificar();
           switch (argumentos[0])
           {
