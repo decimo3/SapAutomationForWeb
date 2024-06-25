@@ -16,13 +16,11 @@ public partial class Program
     Esperar(this.espera["CURTA"], throw_exception: false);
     if(this.driver.Title == "Lista de parceiros")
     {
-      GotoFrame("ParceiroFrame1");
-      var parceiro = this.driver.FindElement(By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PRIMEIRO_STATUS"]));
+      var parceiro = Esperar("ParceiroFrame1", By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PRIMEIRO_STATUS"]), this.espera["CURTA"]).First();
       if(!parceiro.GetDomAttribute("src").Contains("LEDG"))
         throw new InvalidOperationException("A instalação não tem cliente vinculado, não é possível processar essa solicitação! Verifique com o controlador!");
-      this.driver.FindElement(By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PRIMEIRO_CHECK"])).Click();
-      GotoFrame("ParceiroFrame2");
-      this.driver.FindElement(By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PROSSEGUIR"])).Click();
+      Esperar("ParceiroFrame1", By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PRIMEIRO_CHECK"]), this.espera["CURTA"]).First().Click();
+      Esperar("ParceiroFrame2", By.XPath(caminho["LISTA_PARCEIROS_NEGOCIO_PROSSEGUIR"]), this.espera["CURTA"]).First().Click();
       this.driver.Close();
     }
     System.Threading.Thread.Sleep(this.espera["CURTA"]);
