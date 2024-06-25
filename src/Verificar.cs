@@ -13,6 +13,7 @@ namespace sap_automation
           System.IO.File.WriteAllText(PRL_LOCKFILE, resposta.ToString());
           System.Environment.Exit(1);
         }
+        ClosePopup();
         var titulo = this.driver.Title;
         switch (this.driver.Title)
         {
@@ -32,8 +33,6 @@ namespace sap_automation
           
           return;
           default:
-            this.janelas = this.driver.WindowHandles;
-            if(janelas.Count > 1) ClosePopup();
             throw new InvalidOperationException("Tela desconhecida!");
         }
       }
