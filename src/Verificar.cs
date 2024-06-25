@@ -26,6 +26,7 @@ namespace sap_automation
             GotoFrame("MIDAREA");
             this.driver.FindElement(By.XPath(caminho["TRY_NOVA_SESSAO"])).Click();
             Autenticar();
+            Verificar(attempt++);
           return;
           case "Interaction Center - [Identificação ]": return;
           default:
