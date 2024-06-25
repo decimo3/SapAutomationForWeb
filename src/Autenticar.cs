@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 namespace sap_automation;
 public partial class Program
 {
@@ -11,6 +11,6 @@ public partial class Program
     this.driver.FindElement(By.Id("LOGON_BUTTON")).Click();
     }
     this.driver.FindElement(By.Id("ZAT01C00001")).Click();
-    System.Threading.Thread.Sleep(this.espera["LONGA"]);
+    Esperar("WorkAreaFrame1", By.XPath(caminho["PESQUISA_TIPO"]), espera["LONGA"]);
   }
 }
