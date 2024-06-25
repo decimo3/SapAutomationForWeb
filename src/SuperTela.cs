@@ -19,10 +19,8 @@ public partial class Program
       this.driver.FindElement(By.XPath(caminho["SUPER_TELA"])).Click();
       WorkAreaFrame = false;
     }
-    System.Threading.Thread.Sleep(this.espera["CURTA"]);
-    GotoFrame($"WorkAreaFrame{(WorkAreaFrame ? '2' : '1')}");
+    var n_faturas = Esperar($"WorkAreaFrame{(WorkAreaFrame ? '2' : '1')}", By.XPath(caminho["TABELA_DEBITOS_LINHAS"]), this.espera["CURTA"]).Count;
     var apontador = 1;
-    var n_faturas = this.driver.FindElements(By.XPath(caminho["TABELA_DEBITOS_LINHAS"])).Count;
     var qnt_passivas = 0;
     do
     {
@@ -43,15 +41,9 @@ public partial class Program
       this.resposta.Append($"Vencimento: {vencimento}\n");
       this.resposta.Append($"Montante: R$ {montante}\n\n");
       linha.FindElement(By.XPath(".//td[9]/a")).Click();
-      System.Threading.Thread.Sleep(this.espera["LONGA"]);
-      this.janelas = this.driver.WindowHandles;
-      this.driver.SwitchTo().Window(this.janelas[1]);
-      GotoFrame("EmbedFramePDF");
-      this.driver.FindElement(By.XPath(caminho["DOWNLOAD_BUTTON"])).Click();
-      System.Threading.Thread.Sleep(this.espera["CURTA"]);
-      this.driver.Close();
-      this.janelas = this.driver.WindowHandles;
-      this.driver.SwitchTo().Window(this.janelas[0]);
+      Esperar(this.espera["LONGA"]);
+      Esperar("EmbedFramePDF", By.XPath(caminho["DOWNLOAD_BUTTON"]), this.espera["CURTA"]).First().Click();
+      ClosePopup();
       apontador++;
       qnt_passivas++;
     } while (apontador <= n_faturas);

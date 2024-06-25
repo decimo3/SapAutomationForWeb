@@ -13,9 +13,7 @@ public partial class Program
     GotoFrame("WorkAreaFrame2");
     this.driver.FindElement(By.XPath(caminho["PESQUISA_TEXTO_INSTALACAO"])).SendKeys(instalacao.ToString());
     this.driver.FindElement(By.XPath(caminho["PESQUISA_BOTAO_PESQUISAR"])).Click();
-    System.Threading.Thread.Sleep(this.espera["CURTA"]);
-    this.janelas = this.driver.WindowHandles;
-    this.driver.SwitchTo().Window(this.janelas[1]);
+    Esperar(this.espera["CURTA"], throw_exception: false);
     if(this.driver.Title == "Lista de parceiros")
     {
       GotoFrame("ParceiroFrame1");
