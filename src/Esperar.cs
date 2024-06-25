@@ -42,7 +42,15 @@ namespace sap_automation
         }
         else
         {
-          this.driver.SwitchTo().Window(this.janelas[1]);
+          try
+          {
+            this.driver.SwitchTo().Window(this.janelas[1]);
+            return;
+          }
+          catch
+          {
+            System.Threading.Thread.Sleep(1_000);
+          }
         }
       }
     }
