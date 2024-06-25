@@ -28,8 +28,12 @@ namespace sap_automation
             Autenticar();
             Verificar(attempt++);
           return;
-          case "Interaction Center - [Identificação ]": return;
+          case "Interaction Center - [Identificação ]":
+          
+          return;
           default:
+            this.janelas = this.driver.WindowHandles;
+            if(janelas.Count > 1) ClosePopup();
             throw new InvalidOperationException("Tela desconhecida!");
         }
       }
