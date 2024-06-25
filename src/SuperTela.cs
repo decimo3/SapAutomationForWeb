@@ -35,12 +35,8 @@ public partial class Program
       System.Threading.Thread.Sleep(this.espera["LONGA"]);
       this.janelas = this.driver.WindowHandles;
       this.driver.SwitchTo().Window(this.janelas[1]);
-      this.driver.Manage().Window.Maximize();
       GotoFrame("EmbedFramePDF");
       this.driver.FindElement(By.XPath(caminho["DOWNLOAD_BUTTON"])).Click();
-      // var embed = this.driver.FindElement(By.Id("C102"));
-      // var url = embed.GetDomAttribute("src");
-      // this.driver.Navigate().GoToUrl($"{configuracoes["BASEURL"]}/{url}");
       System.Threading.Thread.Sleep(this.espera["CURTA"]);
       this.driver.Close();
       this.janelas = this.driver.WindowHandles;
