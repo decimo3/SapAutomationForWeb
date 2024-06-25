@@ -32,8 +32,10 @@ namespace sap_automation
             throw new InvalidOperationException("Tela desconhecida!");
         }
       }
-      catch
+      catch (System.Exception erro)
       {
+        Console.WriteLine(erro.Message);
+        Console.WriteLine(erro.StackTrace);
         Atualizar();
         Verificar(attempt++);
       }
