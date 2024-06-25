@@ -16,6 +16,7 @@ namespace sap_automation
         var titulo = this.driver.Title;
         switch (this.driver.Title)
         {
+          case "Logon":
           case "SAP - [Selecionar uma função do usuário ]":
             Autenticar();
             Verificar(attempt++);
