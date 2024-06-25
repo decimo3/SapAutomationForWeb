@@ -15,7 +15,7 @@ namespace sap_automation
       {"WorkAreaFrame2", "CRMApplicationFrame>.//div/iframe>CRMApplicationFrame>FRAME_APPLICATION>WorkAreaFrame2"},
       {"ParceiroFrame1", "WorkAreaFrame1"},
       {"ParceiroFrame2", "WorkAreaFrame2"},
-      {"EmbedFramePDF", "WorkAreaFrame1>ITSFRAME1"},
+      {"EmbedFramePDF", "WorkAreaFrame1>ITSFRAME1>C102"},
       {"ChromeViewerPDF", ".//body/embed"},
       {"HeadAreaFrame", "CRMApplicationFrame>.//div/iframe>CRMApplicationFrame>FRAME_APPLICATION>HeaderFrame"},
       {"TabAreaFrame", "CRMApplicationFrame>.//div/iframe>CRMApplicationFrame>FRAME_APPLICATION>HeaderFrame>WorkAreaFrame1"},

@@ -37,9 +37,10 @@ public partial class Program
       this.driver.SwitchTo().Window(this.janelas[1]);
       this.driver.Manage().Window.Maximize();
       GotoFrame("EmbedFramePDF");
-      var embed = this.driver.FindElement(By.Id("C102"));
-      var url = embed.GetDomAttribute("src");
-      this.driver.Navigate().GoToUrl($"http://sspcldb1.light.com.br:8001/{url}");
+      this.driver.FindElement(By.XPath(caminho["DOWNLOAD_BUTTON"])).Click();
+      // var embed = this.driver.FindElement(By.Id("C102"));
+      // var url = embed.GetDomAttribute("src");
+      // this.driver.Navigate().GoToUrl($"{configuracoes["BASEURL"]}/{url}");
       System.Threading.Thread.Sleep(this.espera["CURTA"]);
       this.driver.Close();
       this.janelas = this.driver.WindowHandles;
