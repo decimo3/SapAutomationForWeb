@@ -44,6 +44,8 @@ public partial class Program : IDisposable
     this.options = new ChromeOptions();
     this.options.AddArgument($@"--user-data-dir={caminho}");
     this.options.AddArgument($@"--app={configuracoes["WEBSITE"]}");
+    this.options.AddArgument("--disable-features=InsecureDownloadWarnings");
+    this.options.AddArgument($"--unsafely-treat-insecure-origin-as-secure={configuracoes["BASEURL"]}");
     this.options.AddUserProfilePreference("download.prompt_for_download", false);
     this.options.AddUserProfilePreference("download.directory_upgrade", true);
     this.options.AddUserProfilePreference("download.default_directory", temporario);
