@@ -26,14 +26,18 @@ namespace sap_automation
         }
       }
     }
-    public void Esperar(Int32 espera)
+    public void Esperar(Int32 espera, Boolean throw_exception = true)
     {
       var agora = DateTime.Now;
       while(true)
       {
         if((DateTime.Now - agora) > TimeSpan.FromSeconds(espera))
         {
-          throw new TimeoutException("A janela não foi encontrada!");
+          if(throw_exception)
+          {
+            throw new TimeoutException("A janela não foi encontrada!");
+          }
+          return;
         }
         this.janelas = this.driver.WindowHandles;
         if(this.janelas.Count == 1)
