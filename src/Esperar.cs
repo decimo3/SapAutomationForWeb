@@ -21,7 +21,7 @@ namespace sap_automation
         }
         catch
         {
-          Thread.Sleep(1_000);
+          Thread.Sleep(500);
           continue;
         }
       }
@@ -42,7 +42,7 @@ namespace sap_automation
         this.janelas = this.driver.WindowHandles;
         if(this.janelas.Count == 1)
         {
-          System.Threading.Thread.Sleep(1_000);
+          System.Threading.Thread.Sleep(500);
         }
         else
         {
@@ -53,7 +53,7 @@ namespace sap_automation
           }
           catch
           {
-            System.Threading.Thread.Sleep(1_000);
+            System.Threading.Thread.Sleep(500);
           }
         }
       }
