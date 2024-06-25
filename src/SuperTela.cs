@@ -6,27 +6,27 @@ public partial class Program
   public void SuperTela(Int64 instalacao)
   {
     Pesquisar(instalacao);
-    Int32 WorkAreaFrame;
+    var WorkAreaFrame = false;
     try
     {
       GotoFrame("WorkAreaFrame1");
       this.driver.FindElement(By.XPath(caminho["SUPER_TELA"])).Click();
-      WorkAreaFrame = 1;
+      WorkAreaFrame = true;
     }
     catch
     {
       GotoFrame("WorkAreaFrame2");
       this.driver.FindElement(By.XPath(caminho["SUPER_TELA"])).Click();
-      WorkAreaFrame = 2;
+      WorkAreaFrame = false;
     }
     System.Threading.Thread.Sleep(this.espera["CURTA"]);
-    GotoFrame($"WorkAreaFrame{WorkAreaFrame}");
+    GotoFrame($"WorkAreaFrame{(WorkAreaFrame ? '2' : '1')}");
     var apontador = 1;
     var n_faturas = this.driver.FindElements(By.XPath(caminho["TABELA_DEBITOS_LINHAS"])).Count;
     var qnt_passivas = 0;
     do
     {
-      GotoFrame($"WorkAreaFrame{WorkAreaFrame}");
+      GotoFrame($"WorkAreaFrame{(WorkAreaFrame ? '2' : '1')}");
       var tabela = this.driver.FindElement(By.XPath(caminho["TABELA_DEBITOS"]));
       var linha = tabela.FindElement(By.XPath(caminho["TABELA_DEBITOS_LINHA"].Replace("_", apontador.ToString())));
       var status = linha.FindElement(By.XPath(".//td[11]")).Text;
