@@ -27,7 +27,7 @@ public partial class Program
       var referencia = linha.FindElement(By.XPath(".//td[6]")).Text;
       var vencimento = linha.FindElement(By.XPath(".//td[8]")).Text;
       var montante = linha.FindElement(By.XPath(".//td[9]")).Text;
-      this.resposta.Append($"{qnt_passivas}ª Fatura\n");
+      this.resposta.Append($"{qnt_passivas + 1}ª Fatura\n");
       this.resposta.Append($"Referencia: {referencia}\n");
       this.resposta.Append($"Vencimento: {vencimento}\n");
       this.resposta.Append($"Montante: R$ {montante}\n\n");
