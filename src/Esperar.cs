@@ -35,8 +35,8 @@ namespace sap_automation
         {
           throw new TimeoutException("A janela não foi encontrada!");
         }
-        var janelas = this.driver.WindowHandles;
-        if(janelas.Count == 1)
+        this.janelas = this.driver.WindowHandles;
+        if(this.janelas.Count == 1)
         {
           System.Threading.Thread.Sleep(1_000);
         }
