@@ -1,9 +1,10 @@
 using OpenQA.Selenium;
+using System.Collections.ObjectModel;
 namespace sap_automation
 {
   public partial class Program
   {
-    public IWebElement Esperar(String frame_index, By caminho, Int32 espera)
+    public ReadOnlyCollection<IWebElement> Esperar(String frame_index, By caminho, Int32 espera)
     {
       var agora = DateTime.Now;
       while(true)
@@ -16,7 +17,7 @@ namespace sap_automation
         {
           GotoFrame(frame_index);
           var elemento = this.driver.FindElements(caminho);
-          if(elemento.Any()) return elemento.First();
+          if(elemento.Any()) return elemento;
         }
         catch
         {
